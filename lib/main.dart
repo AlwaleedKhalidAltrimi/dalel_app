@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'core/translation/translation.dart';
+import 'core/utils/app_colors.dart';
+import 'features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const DalelAPP());
@@ -7,13 +11,16 @@ void main() {
 class DalelAPP extends StatelessWidget {
   const DalelAPP({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dalel APP',
-      home: Placeholder(),
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite),
+      home: const SplashView(),
+      translations: AppTranslations(),
+      locale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en'),
     );
   }
 }
