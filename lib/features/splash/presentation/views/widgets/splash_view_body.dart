@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:get/get.dart';
+import '../../../../../core/routes/app_routes.dart';
 import 'fade_scale_text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -12,46 +13,46 @@ class SplashViewBody extends StatefulWidget {
 
 class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<double> fadeScaleAnimation;
+  late AnimationController _animationController;
+  late Animation<double> _fadeScaleAnimation;
 
   @override
   void initState() {
     super.initState();
 
-    initFadeScaleAnimation();
-    // navigateToHome();
+    _initFadeScaleAnimation();
+    _navigateToOnBoarding();
   }
 
   @override
   void dispose() {
-    animationController.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
-  void initFadeScaleAnimation() {
-    animationController = AnimationController(
+  void _initFadeScaleAnimation() {
+    _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-    fadeScaleAnimation = CurvedAnimation(
-      parent: animationController,
+    _fadeScaleAnimation = CurvedAnimation(
+      parent: _animationController,
       curve: Curves.easeInOut,
     );
-    animationController.forward();
+    _animationController.forward();
   }
 
-  // void navigateToHome() {
-  //   Future.delayed(
-  //     const Duration(seconds: 3),
-  //     () =>  Get.offNamed(),
-  //   );
-  // }
+  void _navigateToOnBoarding() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () => Get.offNamed(AppRoutes.onBoarding),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return FadeScaleTransition(
-      animation: fadeScaleAnimation,
+      animation: _fadeScaleAnimation,
       child: const Center(child: FadeScaleText()),
     );
   }

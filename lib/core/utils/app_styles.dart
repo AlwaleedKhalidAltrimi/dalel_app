@@ -18,7 +18,7 @@ abstract class AppStyles {
   );
   static TextStyle font24mediumpoppins = TextStyle(
     fontSize: 24,
-    fontWeight: FontWeightHelper.medium,
+    fontWeight: FontWeightHelper.bold,
     color: AppColors.black,
     fontFamily: FontFamilyHelper.poppins,
   );

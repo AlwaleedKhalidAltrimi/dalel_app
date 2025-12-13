@@ -7,6 +7,6 @@ class FadeScaleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('1'.tr, style: AppStyles.font64regularPacifico);
+    return Text("1".tr, style: AppStyles.font64regularPacifico);
   }
 }

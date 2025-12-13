@@ -13,7 +13,5 @@ class AppImages {
 
   static const String imagesSignIn = "assets/images/sign_in.svg";
 
-  static const String imagesSplash = "assets/images/splash.svg";
-
   static const String imagesSucccesOrder = "assets/images/succces_order.svg";
 }
