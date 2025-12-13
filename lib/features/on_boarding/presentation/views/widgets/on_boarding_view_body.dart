@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Add this import
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../data/models/on_boarding_model.dart';
 import 'custom_smooth_page_indicator.dart';

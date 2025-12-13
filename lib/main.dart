@@ -1,7 +1,7 @@
-import 'package:dalel_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/routes/app_pages.dart';
+import 'core/routes/app_routes.dart';
 import 'core/translation/translation.dart';
 import 'core/utils/app_colors.dart';
 
@@ -18,7 +18,7 @@ class DalelAPP extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Dalel',
       theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite),
-      home: SplashView(),
+      initialRoute: AppRoutes.splash,
       getPages: AppPages.getPages,
       translations: AppTranslations(),
       locale: const Locale('en', 'US'),

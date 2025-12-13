@@ -27,7 +27,7 @@ class OnBoardingNavigationButtons extends StatelessWidget {
           const SizedBox(height: 16),
           CustomTextButton(
             text: "11",
-            onTap: () => Get.offAllNamed(AppRoutes.signUp),
+            onTap: () => Get.offAllNamed(AppRoutes.signIn),
             textStyle: AppStyles.font16regularpoppins.copyWith(
               color: AppColors.deepGrey,
             ),
@@ -40,8 +40,8 @@ class OnBoardingNavigationButtons extends StatelessWidget {
         text: "9".tr,
         onPressed: () {
           controller.nextPage(
-            duration: const Duration(microseconds: 200),
-            curve: Curves.bounceIn,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
           );
         },
       );
