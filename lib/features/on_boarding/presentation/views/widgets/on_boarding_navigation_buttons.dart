@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../core/routes/app_routes.dart';
+import '../../../../../core/services/app_services.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
 import '../../../data/models/on_boarding_model.dart';
+import '../../functions/on_oarding_visited.dart';
 
 class OnBoardingNavigationButtons extends StatelessWidget {
   const OnBoardingNavigationButtons({
@@ -17,17 +19,24 @@ class OnBoardingNavigationButtons extends StatelessWidget {
   final PageController controller;
   @override
   Widget build(BuildContext context) {
+    final appServices = Get.find<AppServices>();
     if (currentIndex == onBoardingData.length - 1) {
       return Column(
         children: [
           CustomButton(
             text: "10".tr,
-            onPressed: () => Get.offAllNamed(AppRoutes.signUp),
+            onPressed: () {
+              onBoardingVisited(appServices);
+              Get.offAllNamed(AppRoutes.signUp);
+            },
           ),
           const SizedBox(height: 16),
           CustomTextButton(
-            text: "11",
-            onTap: () => Get.offAllNamed(AppRoutes.signIn),
+            text: "11".tr,
+            onTap: () {
+              onBoardingVisited(appServices);
+              Get.offAllNamed(AppRoutes.signIn);
+            },
             textStyle: AppStyles.font16regularpoppins.copyWith(
               color: AppColors.deepGrey,
             ),

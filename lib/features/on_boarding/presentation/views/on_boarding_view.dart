@@ -2,8 +2,10 @@ import 'package:dalel_app/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
+import '../../../../core/services/app_services.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../controllers/on_boarding_controller.dart';
+import '../functions/on_oarding_visited.dart';
 import 'widgets/on_boarding_navigation_buttons.dart';
 import 'widgets/on_boarding_view_body.dart';
 
@@ -12,6 +14,8 @@ class OnBoardingView extends GetView<OnBoardingController> {
 
   @override
   Widget build(BuildContext context) {
+    final appServices = Get.find<AppServices>();
+
     return SafeArea(
       child: Scaffold(
         body: CustomScrollView(
@@ -32,7 +36,10 @@ class OnBoardingView extends GetView<OnBoardingController> {
                         maintainState: true,
                         child: CustomTextButton(
                           text: "2".tr,
-                          onTap: () => Get.offAllNamed(AppRoutes.signUp),
+                          onTap: () {
+                            onBoardingVisited(appServices);
+                            Get.offAllNamed(AppRoutes.signUp);
+                          },
                           textStyle: AppStyles.font16regularpoppins,
                           alignment: Alignment.centerRight,
                         ),

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/routes/app_pages.dart';
 import 'core/routes/app_routes.dart';
-import 'core/translation/translation.dart';
+import 'core/services/app_services.dart';
+import 'core/translation/app_translations.dart';
 import 'core/utils/app_colors.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initialServices();
   runApp(const DalelAPP());
 }
 
