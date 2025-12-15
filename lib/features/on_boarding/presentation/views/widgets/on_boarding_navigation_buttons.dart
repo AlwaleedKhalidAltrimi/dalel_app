@@ -7,7 +7,7 @@ import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
 import '../../../data/models/on_boarding_model.dart';
-import '../../functions/on_oarding_visited.dart';
+import '../../functions/on_boarding_visited.dart';
 
 class OnBoardingNavigationButtons extends StatelessWidget {
   const OnBoardingNavigationButtons({
@@ -35,7 +35,7 @@ class OnBoardingNavigationButtons extends StatelessWidget {
             text: "11".tr,
             onTap: () {
               onBoardingVisited(appServices);
-              Get.offAllNamed(AppRoutes.signIn);
+              Get.offAllNamed(AppRoutes.signUp);
             },
             textStyle: AppStyles.font16regularpoppins.copyWith(
               color: AppColors.deepGrey,

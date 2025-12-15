@@ -49,7 +49,7 @@ abstract class AppStyles {
   static TextStyle font14regularpoppins = TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.regular,
-    color: AppColors.navyDark,
+    color: AppColors.navyMedium,
     fontFamily: FontFamilyHelper.poppins,
   );
   static TextStyle font12regularpoppins = TextStyle(
@@ -58,12 +58,7 @@ abstract class AppStyles {
     color: AppColors.deepGrey,
     fontFamily: FontFamilyHelper.poppins,
   );
-  static TextStyle font24blackpoppins = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeightHelper.black,
-    color: AppColors.lightblack,
-    fontFamily: FontFamilyHelper.poppins,
-  );
+
   static TextStyle font12semiBoldpoppins = TextStyle(
     fontSize: 12,
     fontWeight: FontWeightHelper.semiBold,
@@ -71,7 +66,7 @@ abstract class AppStyles {
     fontFamily: FontFamilyHelper.poppins,
   );
   static TextStyle font22regularpacifico = TextStyle(
-    fontSize: 12,
+    fontSize: 22,
     fontWeight: FontWeightHelper.regular,
     color: AppColors.deepGrey,
     fontFamily: FontFamilyHelper.pacifico,

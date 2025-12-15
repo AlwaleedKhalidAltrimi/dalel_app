@@ -5,7 +5,7 @@ import '../../../../core/routes/app_routes.dart';
 import '../../../../core/services/app_services.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../controllers/on_boarding_controller.dart';
-import '../functions/on_oarding_visited.dart';
+import '../functions/on_boarding_visited.dart';
 import 'widgets/on_boarding_navigation_buttons.dart';
 import 'widgets/on_boarding_view_body.dart';
 
@@ -28,8 +28,9 @@ class OnBoardingView extends GetView<OnBoardingController> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const SizedBox(height: 40),
-                    Obx(
-                      () => Visibility(
+                    // Using Obx properly with scoped observable variable
+                    Obx(() {
+                      return Visibility(
                         visible: controller.showSkipButton,
                         maintainSize: true,
                         maintainAnimation: true,
@@ -43,8 +44,8 @@ class OnBoardingView extends GetView<OnBoardingController> {
                           textStyle: AppStyles.font16regularpoppins,
                           alignment: Alignment.centerRight,
                         ),
-                      ),
-                    ),
+                      );
+                    }),
                     const SizedBox(height: 32),
                     Expanded(
                       child: OnBoardingViewBody(
