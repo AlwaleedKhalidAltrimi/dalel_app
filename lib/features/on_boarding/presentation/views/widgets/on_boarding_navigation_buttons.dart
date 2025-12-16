@@ -35,7 +35,7 @@ class OnBoardingNavigationButtons extends StatelessWidget {
             text: "11".tr,
             onTap: () {
               onBoardingVisited(appServices);
-              Get.offAllNamed(AppRoutes.signUp);
+              Get.offAllNamed(AppRoutes.signIn);
             },
             textStyle: AppStyles.font16regularpoppins.copyWith(
               color: AppColors.deepGrey,

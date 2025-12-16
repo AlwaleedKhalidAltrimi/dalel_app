@@ -21,7 +21,7 @@ class SignUpViewBody extends StatelessWidget {
           promptText: "15".tr,
           linkText: "16".tr,
           onTap: () {
-            Get.offNamed(AppRoutes.signUp);
+            Get.offNamed(AppRoutes.signIn);
           },
         ),
         const SizedBox(height: 17),

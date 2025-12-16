@@ -43,6 +43,7 @@ dependencies:
   shared_preferences: ^2.5.4
   fluttertoast: ^9.0.0
   firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,11 @@ flutter:
     - family: Pacifico
       fonts:
         - asset: assets/fonts/Pacifico-Regular.ttf
+    - family: Saira
+      fonts:
+        - asset: assets/fonts/Saira-Regular.ttf
+        - asset: assets/fonts/Saira-Bold.ttf
+          weight: 700
 
   #
   # For details regarding fonts from package dependencies,

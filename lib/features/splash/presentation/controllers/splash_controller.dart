@@ -43,9 +43,9 @@ class SplashController extends GetxController
     Future.delayed(const Duration(seconds: 3), () {
       // Check if the controller is still mounted before navigating
       if (isClosed) return;
-      
+
       if (isOnBoardingVisited) {
-        Get.offNamed(AppRoutes.signUp);
+        Get.offNamed(AppRoutes.signIn);
       } else {
         Get.offNamed(AppRoutes.onBoarding);
       }

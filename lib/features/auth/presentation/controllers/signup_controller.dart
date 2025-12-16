@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/functions/show_custom_toast.dart';
 import '../../../../core/routes/app_routes.dart';
+import '../../../../core/widgets/custom_snackbar.dart';
 
 class SignupController extends GetxController {
   // Form fields
@@ -45,20 +47,54 @@ class SignupController extends GetxController {
   Future<void> signUp() async {
     if (!termsAccepted.value) {
       // Show error message if terms are not accepted
-      Get.snackbar("Error", "Please accept the terms and conditions");
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "22".tr,
+        type: SnackType.error,
+      );
       return;
     }
 
     if (formKey.currentState!.validate()) {
       isLoading.value = true;
 
-      // Simulate API call
-      await Future.delayed(const Duration(seconds: 2));
+      try {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailAddress.value,
+          password: password.value,
+        );
 
-      isLoading.value = false;
+        // Successfully created user
+        isLoading.value = false;
+        showCustomSnackBar(
+          title: "29".tr,
+          message: "27".tr,
+          type: SnackType.success,
+        );
+        Get.offAllNamed(AppRoutes.signIn);
+      } on FirebaseAuthException catch (e) {
+        isLoading.value = false;
 
-      showCustomToast("21".tr);
-      Get.offAllNamed(AppRoutes.signUp);
+        if (e.code == 'weak-password') {
+          showCustomSnackBar(
+            title: "28".tr,
+            message: "24".tr,
+            type: SnackType.error,
+          );
+        } else if (e.code == 'email-already-in-use') {
+          showCustomSnackBar(
+            title: "28".tr,
+            message: "25".tr,
+            type: SnackType.error,
+          );
+        } else {
+          showCustomSnackBar(
+            title: "28".tr,
+            message: e.message ?? "25".tr,
+            type: SnackType.error,
+          );
+        }
+      }
     }
   }
 }

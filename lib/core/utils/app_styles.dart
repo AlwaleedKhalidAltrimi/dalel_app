@@ -95,4 +95,10 @@ abstract class AppStyles {
     color: AppColors.deepGrey,
     fontFamily: FontFamilyHelper.poppins,
   );
+  static TextStyle font32boldsaira = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeightHelper.black,
+    color: AppColors.white,
+    fontFamily: FontFamilyHelper.saira,
+  );
 }

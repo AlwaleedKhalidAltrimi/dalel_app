@@ -4,12 +4,17 @@ import '../../../../../core/helper/font_weight_helper.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'package:get/get.dart';
 
+// Enum to define validation types
+enum ValidationType { none, email, password, name }
+
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final bool? obscureText;
   final Widget? suffixIcon;
+  final TextInputType? keyboardType;
+  final ValidationType validationType;
 
   const CustomTextFormField({
     super.key,
@@ -18,6 +23,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onFieldSubmitted,
     this.obscureText,
     this.suffixIcon,
+    this.keyboardType,
+    this.validationType = ValidationType.none,
   });
 
   @override
@@ -26,27 +33,50 @@ class CustomTextFormField extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8.0, left: 8.0, top: 24),
       child: TextFormField(
         cursorColor: AppColors.mediumGrey,
+        keyboardType: keyboardType,
+        autovalidateMode: AutovalidateMode.onUnfocus,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return "This field is required";
+            return "30".tr;
           }
 
-          // Email validation
-          if (labelText == "Email Address".tr ||
-              labelText == "عنوان البريد الإلكتروني") {
-            // Email field
-            final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-            if (!emailRegex.hasMatch(value)) {
-              return "Please enter a valid email address";
-            }
-          }
+          String trimmedValue = value.trim();
 
-          // Password validation
-          if (labelText == "Password".tr || labelText == "كلمة المرور") {
-            // Password field
-            if (value.length < 6) {
-              return "Password must be at least 6 characters";
-            }
+          switch (validationType) {
+            case ValidationType.email:
+              if (trimmedValue.contains(' ')) {
+                return "37".tr;
+              }
+              final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+              if (!emailRegex.hasMatch(trimmedValue)) {
+                return "31".tr;
+              }
+              break;
+
+            case ValidationType.password:
+              if (trimmedValue.length < 6) {
+                return "32".tr;
+              }
+              if (trimmedValue.contains(' ')) {
+                return "36".tr;
+              }
+              break;
+
+            case ValidationType.name:
+              if (trimmedValue.length < 2) {
+                return "Name must be at least 2 characters".tr;
+              }
+              final nameRegex = RegExp(r'^[a-zA-Z\s]+$');
+              if (!nameRegex.hasMatch(trimmedValue)) {
+                return "33".tr;
+              }
+              if (trimmedValue.contains('  ')) {
+                return "35".tr;
+              }
+              break;
+
+            case ValidationType.none:
+              break;
           }
 
           return null;
@@ -54,7 +84,6 @@ class CustomTextFormField extends StatelessWidget {
         onChanged: onChanged,
         onFieldSubmitted: onFieldSubmitted,
         obscureText: obscureText ?? false,
-
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: AppStyles.font12regularpoppins.copyWith(
