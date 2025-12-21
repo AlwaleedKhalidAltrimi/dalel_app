@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -63,6 +64,7 @@ class SignupController extends GetxController {
           email: emailAddress.value,
           password: password.value,
         );
+        await addUserProfile();
         await verifyEmail();
 
         // Successfully created user
@@ -122,5 +124,14 @@ class SignupController extends GetxController {
 
   Future<void> verifyEmail() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  }
+
+  Future<void> addUserProfile() async {
+    CollectionReference users = FirebaseFirestore.instance.collection("users");
+    await users.add({
+      "email": emailAddress.value,
+      "first_name": firstName.value,
+      "last_name": lastName.value,
+    });
   }
 }
