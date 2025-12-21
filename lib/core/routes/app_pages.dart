@@ -1,3 +1,4 @@
+import '../../features/home/presentation/views/home_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
@@ -26,6 +27,11 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.signIn,
       page: () => const SignInView(),
+      binding: InitialBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.home,
+      page: () => const HomeView(),
       binding: InitialBinding(),
     ),
   ];

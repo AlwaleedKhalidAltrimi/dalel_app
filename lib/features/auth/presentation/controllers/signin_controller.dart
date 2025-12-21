@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../../../core/functions/show_custom_toast.dart';
 import '../../../../core/routes/app_routes.dart';
 import '../../../../core/widgets/custom_snackbar.dart';
 
@@ -44,37 +45,51 @@ class SigninController extends GetxController {
 
         // Check if email is verified
         if (credential.user!.emailVerified) {
-          Get.offAllNamed(AppRoutes.signUp);
+          Get.offAllNamed(AppRoutes.home);
         } else {
-          showCustomSnackBar(
-            title: "41".tr,
-            message: "42".tr,
-            type: SnackType.warning,
-          );
+          showCustomToast("42".tr);
+          // showCustomSnackBar(
+          //   title: "41".tr,
+          //   message: "42".tr,
+          //   type: SnackType.warning,
+          // );
         }
       } on FirebaseAuthException catch (e) {
+        _signInHandleException(e);
+      } catch (e) {
+        debugPrint("********** $e");
         isLoading.value = false;
-
-        if (e.code == 'user-not-found') {
-          showCustomSnackBar(
-            title: "43".tr,
-            message: "44".tr,
-            type: SnackType.error,
-          );
-        } else if (e.code == 'wrong-password') {
-          showCustomSnackBar(
-            title: "43".tr,
-            message: "45".tr,
-            type: SnackType.error,
-          );
-        } else {
-          showCustomSnackBar(
-            title: "43".tr,
-            message: e.message ?? "46".tr,
-            type: SnackType.error,
-          );
-        }
+        showCustomSnackBar(
+          title: "28".tr,
+          message: "46".tr,
+          type: SnackType.error,
+        );
       }
+    }
+  }
+
+  void _signInHandleException(FirebaseAuthException e) {
+    debugPrint("********** ${e.code}");
+    isLoading.value = false;
+
+    if (e.code == 'user-not-found') {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "44".tr,
+        type: SnackType.error,
+      );
+    } else if (e.code == 'wrong-password') {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "45".tr,
+        type: SnackType.error,
+      );
+    } else {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "46".tr,
+        type: SnackType.error,
+      );
     }
   }
 }

@@ -63,38 +63,64 @@ class SignupController extends GetxController {
           email: emailAddress.value,
           password: password.value,
         );
+        await verifyEmail();
 
         // Successfully created user
         isLoading.value = false;
-        showCustomSnackBar(
-          title: "29".tr,
-          message: "27".tr,
-          type: SnackType.success,
-        );
+
+        // showCustomSnackBar(
+        //   title: "29".tr,
+        //   message: "27".tr,
+        //   type: SnackType.success,
+        // );
+        showCustomToast("27".tr);
         Get.offAllNamed(AppRoutes.signIn);
       } on FirebaseAuthException catch (e) {
+        _signUpHandleException(e);
+      } catch (e) {
+        debugPrint("********** $e");
         isLoading.value = false;
-
-        if (e.code == 'weak-password') {
-          showCustomSnackBar(
-            title: "28".tr,
-            message: "24".tr,
-            type: SnackType.error,
-          );
-        } else if (e.code == 'email-already-in-use') {
-          showCustomSnackBar(
-            title: "28".tr,
-            message: "25".tr,
-            type: SnackType.error,
-          );
-        } else {
-          showCustomSnackBar(
-            title: "28".tr,
-            message: e.message ?? "25".tr,
-            type: SnackType.error,
-          );
-        }
+        showCustomSnackBar(
+          title: "28".tr,
+          message: "25".tr,
+          type: SnackType.error,
+        );
       }
     }
+  }
+
+  void _signUpHandleException(FirebaseAuthException e) {
+    debugPrint("********** ${e.code}");
+    isLoading.value = false;
+
+    if (e.code == 'weak-password') {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "23".tr,
+        type: SnackType.error,
+      );
+    } else if (e.code == 'email-already-in-use') {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "24".tr,
+        type: SnackType.error,
+      );
+    } else if (e.code == 'invalid-email') {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "31".tr,
+        type: SnackType.error,
+      );
+    } else {
+      showCustomSnackBar(
+        title: "28".tr,
+        message: "46".tr,
+        type: SnackType.error,
+      );
+    }
+  }
+
+  Future<void> verifyEmail() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 }

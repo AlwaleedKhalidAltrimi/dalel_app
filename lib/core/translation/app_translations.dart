@@ -39,8 +39,7 @@ class AppTranslations extends Translations {
 
       // ========= Validation Messages =========
       "30": "هذا الحقل مطلوب",
-      "31": "الرجاء إدخال عنوان بريد إلكتروني صحيح",
-      "32": "كلمة المرور يجب أن تكون على الأقل 6 أحرف",
+      "31": "البريد الإلكتروني غير صالح",
       "33": "الاسم يمكن أن يحتوي فقط على أحرف ومسافات",
       "34": "الاسم لا يمكن أن يبدأ أو ينتهي بمسافات",
       "35": "الاسم لا يمكن أن يحتوي على مسافات متتالية",
@@ -53,7 +52,7 @@ class AppTranslations extends Translations {
       "24": "الحساب موجود بالفعل لهذا البريد الإلكتروني",
       "25": "حدث خطأ غير معروف",
       "26": "خطأ غير معروف",
-      "27": "تم إنشاء الحساب بنجاح",
+      "27": "تم بنجاح، تحقق من بريدك الإلكتروني للتحقق من حسابك",
       "28": "خطأ",
       "29": "نجاح",
       "40": "نسيت كلمة المرور؟",
@@ -61,7 +60,6 @@ class AppTranslations extends Translations {
       // ========= Sign In Messages =========
       "41": "تسجيل الدخول",
       "42": "يرجى التحقق من عنوان بريدك الإلكتروني",
-      "43": "فشل تسجيل الدخول",
       "44": "لم يتم العثور على مستخدم لهذا البريد الإلكتروني.",
       "45": "كلمة المرور المقدمة لهذا المستخدم خاطئة.",
       "46": "حدث خطأ غير معروف",
@@ -104,8 +102,7 @@ class AppTranslations extends Translations {
 
       // ========= Validation Messages =========
       "30": "This field is required",
-      "31": "Please enter a valid email address",
-      "32": "Password must be at least 6 characters",
+      "31": "The email is invalid.",
       "33": "Name can only contain letters and spaces",
       "34": "Name cannot start or end with spaces",
       "35": "Name cannot contain consecutive spaces",
@@ -118,7 +115,7 @@ class AppTranslations extends Translations {
       "24": "The account already exists for that email",
       "25": "An unknown error occurred",
       "26": "An unknown error occurred",
-      "27": "Account created successfully",
+      "27": "Successfully, Check your email to verify your account",
       "28": "Error",
       "29": "Success",
       "40": "Forgot Password ?",
@@ -126,7 +123,6 @@ class AppTranslations extends Translations {
       // ========= Sign In Messages =========
       "41": "Sign In",
       "42": "Please verify your email address",
-      "43": "Sign In Failed",
       "44": "No user found for that email.",
       "45": "Wrong password provided for that user.",
       "46": "An unknown error occurred",

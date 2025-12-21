@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/routes/app_routes.dart';
 import '../../../../core/services/app_services.dart';
 
@@ -44,8 +45,12 @@ class SplashController extends GetxController
       // Check if the controller is still mounted before navigating
       if (isClosed) return;
 
-      if (isOnBoardingVisited) {
-        Get.offNamed(AppRoutes.signIn);
+      if (isOnBoardingVisited == true) {
+        FirebaseAuth.instance.currentUser == null
+            ? Get.offNamed(AppRoutes.signIn)
+            : FirebaseAuth.instance.currentUser!.emailVerified == true
+            ? Get.offNamed(AppRoutes.home)
+            : Get.offNamed(AppRoutes.signIn);
       } else {
         Get.offNamed(AppRoutes.onBoarding);
       }

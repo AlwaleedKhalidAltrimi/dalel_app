@@ -5,7 +5,7 @@ import '../../../../../core/utils/app_styles.dart';
 import 'package:get/get.dart';
 
 // Enum to define validation types
-enum ValidationType { none, email, password, name }
+enum ValidationType { none, password, name }
 
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
@@ -43,16 +43,6 @@ class CustomTextFormField extends StatelessWidget {
           String trimmedValue = value.trim();
 
           switch (validationType) {
-            case ValidationType.email:
-              if (trimmedValue.contains(' ')) {
-                return "37".tr;
-              }
-              final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-              if (!emailRegex.hasMatch(trimmedValue)) {
-                return "31".tr;
-              }
-              break;
-
             case ValidationType.password:
               if (trimmedValue.length < 6) {
                 return "32".tr;

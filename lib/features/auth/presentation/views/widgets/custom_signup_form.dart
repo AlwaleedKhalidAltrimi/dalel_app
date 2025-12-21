@@ -3,7 +3,7 @@ import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/signup_controller.dart';
-import 'custom_text_field.dart' show CustomTextFormField, ValidationType;
+import 'custom_text_field.dart';
 import 'terms_and_condition_widget.dart';
 
 class CustomSignUpForm extends GetWidget<SignupController> {
@@ -30,7 +30,6 @@ class CustomSignUpForm extends GetWidget<SignupController> {
           CustomTextFormField(
             labelText: "19".tr,
             keyboardType: TextInputType.emailAddress,
-            validationType: ValidationType.email,
             onChanged: (value) => controller.updateEmail(value),
           ),
           Obx(
@@ -39,7 +38,6 @@ class CustomSignUpForm extends GetWidget<SignupController> {
                 CustomTextFormField(
                   labelText: "20".tr,
                   keyboardType: TextInputType.visiblePassword,
-                  validationType: ValidationType.password,
                   obscureText: controller.obscurePassword.value,
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -49,6 +47,7 @@ class CustomSignUpForm extends GetWidget<SignupController> {
                     ),
                     onPressed: controller.togglePasswordVisibility,
                   ),
+                  validationType: ValidationType.password,
                   onChanged: (value) => controller.updatePassword(value),
                 ),
                 const SizedBox(height: 16),
