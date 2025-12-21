@@ -1,3 +1,4 @@
+import '../../features/auth/presentation/views/forgot_password_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -32,6 +33,11 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.home,
       page: () => const HomeView(),
+      binding: InitialBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.forgotPassword,
+      page: () => const ForgotPasswordView(),
       binding: InitialBinding(),
     ),
   ];

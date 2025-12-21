@@ -37,6 +37,13 @@ class AppTranslations extends Translations {
       "18": "الاسم الأخير",
       "21": "إنشاء حساب",
 
+      // ========= Forgot Password View =========
+      "47":
+          "أدخل بريدك الإلكتروني المسجل أدناه لتلقي\nتعليمات إعادة تعيين كلمة المرور",
+      "48": "تحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+      "49": "فشل في إرسال بريد إلكتروني لإعادة تعيين كلمة المرور",
+      "50": "إرسال رابط إعادة تعيين كلمة المرور",
+
       // ========= Validation Messages =========
       "30": "هذا الحقل مطلوب",
       "31": "البريد الإلكتروني غير صالح",
@@ -56,6 +63,7 @@ class AppTranslations extends Translations {
       "28": "خطأ",
       "29": "نجاح",
       "40": "نسيت كلمة المرور؟",
+      "43": "نسيت كلمة المرور",
 
       // ========= Sign In Messages =========
       "41": "تسجيل الدخول",
@@ -100,6 +108,13 @@ class AppTranslations extends Translations {
       "18": "Last Name",
       "21": "Sign Up",
 
+      // ========= Forgot Password View =========
+      "47":
+          "Enter your registered email below to receive\npassword reset instruction",
+      "48": "Check your email to reset your password",
+      "49": "Failed to send reset password email",
+      "50": "Send Reset Passwrod Link",
+
       // ========= Validation Messages =========
       "30": "This field is required",
       "31": "The email is invalid.",
@@ -119,6 +134,7 @@ class AppTranslations extends Translations {
       "28": "Error",
       "29": "Success",
       "40": "Forgot Password ?",
+      "43": "Forgot Password",
 
       // ========= Sign In Messages =========
       "41": "Sign In",

@@ -33,7 +33,7 @@ class OnBoardingView extends GetView<OnBoardingController> {
                         child: CustomTextButton(
                           text: "2".tr,
                           onTap: () {
-                            // Navigate to the third onboarding page (index 2) instead of sign-up
+                            // Navigate to the third onboarding page
                             controller.pageController.animateToPage(
                               2,
                               duration: const Duration(milliseconds: 500),
