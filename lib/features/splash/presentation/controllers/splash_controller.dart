@@ -49,7 +49,7 @@ class SplashController extends GetxController
         FirebaseAuth.instance.currentUser == null
             ? Get.offNamed(AppRoutes.signIn)
             : FirebaseAuth.instance.currentUser!.emailVerified == true
-            ? Get.offNamed(AppRoutes.home)
+            ? Get.offNamed(AppRoutes.homeNavBar)
             : Get.offNamed(AppRoutes.signIn);
       } else {
         Get.offNamed(AppRoutes.onBoarding);

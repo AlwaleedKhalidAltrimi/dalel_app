@@ -1,5 +1,5 @@
 import '../../features/auth/presentation/views/forgot_password_view.dart';
-import '../../features/home/presentation/views/home_view.dart';
+import '../../features/home/presentation/views/widgets/home_nav_bar_widget.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
@@ -31,13 +31,13 @@ abstract class AppPages {
       binding: InitialBinding(),
     ),
     GetPage(
-      name: AppRoutes.home,
-      page: () => const HomeView(),
+      name: AppRoutes.forgotPassword,
+      page: () => const ForgotPasswordView(),
       binding: InitialBinding(),
     ),
     GetPage(
-      name: AppRoutes.forgotPassword,
-      page: () => const ForgotPasswordView(),
+      name: AppRoutes.homeNavBar,
+      page: () => const HomeNavBarWidget(),
       binding: InitialBinding(),
     ),
   ];

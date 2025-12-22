@@ -45,6 +45,7 @@ dependencies:
   firebase_core: ^4.2.1
   firebase_auth: ^6.1.2
   cloud_firestore: ^6.1.1
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -103,5 +104,6 @@ flutter_assets:
   assets_path: assets/images
   output_path: lib/core/utils/
   filename: app_images.dart
+  classname: AppImages
   field_prefix: null
   ignore_comments: true

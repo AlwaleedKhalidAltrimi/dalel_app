@@ -45,7 +45,7 @@ class SigninController extends GetxController {
 
         // Check if email is verified
         if (credential.user!.emailVerified) {
-          Get.offAllNamed(AppRoutes.home);
+          Get.offAllNamed(AppRoutes.homeNavBar);
         } else {
           showCustomToast("42".tr);
           // showCustomSnackBar(
